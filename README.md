@@ -24,7 +24,7 @@ var depencencies: Dependencies { get }
 ### Injector:
 Thats my ressource of  different Default-Implentations of all fundamental Services / API-Wrappers, I will use in the project.
 
-```
+``` swift
 protocol-extensions for the actual inject
 By adopting a hasSomeService Protocol, an Object will gain access to the default Implementations described above.
 
@@ -44,7 +44,7 @@ MapKitAPI { get { return Injector.MapKitService } }
 ### Protocols for inputs / outputs
 My Protocols will later be adopted by structs
 
-```
+``` swift
 /// Input Interface
 protocol RxViewModelInputType {
 var query: Driver<String> { get }
@@ -62,7 +62,7 @@ var unbind: Signal<()> { get }
 ### Protocol for dependency
 The adopter of that RxViewModelDependencyType protocol, will automaticly have a referance on my Core Services
 
-```
+``` swift
 /// Dependency Interface
 protocol RxViewModelDependencyType: hasMapKitService {}
 ```
@@ -73,7 +73,7 @@ They define the typealias for my "final" ViewModel-Interace
 I use mostly use the Driver Trait for my ViewModels, because it's running on the main Thread and therefore good 
 for UI related tasks.
 
-```
+``` swift
 // Auto adopts my dependencies
 struct RxViewModelDependencies: RxViewModelDependencyType { }
 
