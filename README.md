@@ -6,18 +6,18 @@ My protocol orientated approach on MVVM using RxSwift
 
 ``` swift
 protocol RxViewModelType {
-	// setting up the structs as typealiases 
-	typealias Input = RxViewModelInputs
-	typealias Output = RxViewModelOutputs
-	typealias Dependencies = RxViewModelDependencies
+  // setting up the structs as typealiases 
+  typealias Input = RxViewModelInputs
+  typealias Output = RxViewModelOutputs
+  typealias Dependencies = RxViewModelDependencies
 
-	// forcing the inject the input and dependencies inside init
-	init(input: Input, dependencies: Dependencies)
+  // forcing the inject the input and dependencies inside init
+  init(input: Input, dependencies: Dependencies)
 
-	// interface for communicating with the view
-	var input: Input { get }
-	var output: Output { get }
-	var depencencies: Dependencies { get }
+  // interface for communicating with the view
+  var input: Input { get }
+  var output: Output { get }
+  var depencencies: Dependencies { get }
 }
 ```
 
@@ -29,7 +29,7 @@ fundamental Services / API-Wrappers, I will use in the project.
 
 ``` swift
 struct Injector {
-	static let MapKitService: MapKitAPI = DefaultMapKitAPI()
+  static let MapKitService: MapKitAPI = DefaultMapKitAPI()
 }
 ```
 
@@ -42,7 +42,7 @@ gain access to the default Implementations described above.
 protocol hasMapKitService { }
 
 extension hasMapKitService { var MapKitService: 
-	MapKitAPI { get { return Injector.MapKitService } } 
+  MapKitAPI { get { return Injector.MapKitService } } 
 }
 ```
 
@@ -53,15 +53,15 @@ My Protocols will later be adopted by structs
 ``` swift
 /// Input Interface
 protocol RxViewModelInputType {
-	var query: Driver<String> { get }
-	var buttonTapped: Signal<()> { get }
-	var cellTapped: Driver<(Int,Int)> { get }
+  var query: Driver<String> { get }
+  var buttonTapped: Signal<()> { get }
+  var cellTapped: Driver<(Int,Int)> { get }
 } 
 
 /// Output Interface
 protocol RxViewModelOutputType {
-	var models: Driver<[AutoSuggestionsModel]> { get }
-	var unbind: Signal<()> { get }
+  var models: Driver<[AutoSuggestionsModel]> { get }
+  var unbind: Signal<()> { get }
 }
 ```
 
@@ -85,8 +85,8 @@ struct RxViewModelDependencies: RxViewModelDependencyType { }
 
 // Output - RxSwift
 struct RxViewModelOutputs: RxViewModelOutputType {
-	let models: Driver<[AutoSuggestionsModel]>
-	let unbind: Signal<()>
+  let models: Driver<[AutoSuggestionsModel]>
+  let unbind: Signal<()>
 }
 
 // Input - RxSwift
