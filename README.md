@@ -96,3 +96,7 @@ struct RxViewModelInputs: RxViewModelInputType {
 	let cellTapped: Driver<(Int,Int)>
 }
 ```
+
+# How to contribute
+Feel invited to share any thought! 
+I'd appreciate any kind of constructive criticism! 
